@@ -1,0 +1,15 @@
+nav li {
+    display: inline-block;
+    margin-right: 35px;
+}
+
+a {
+    text-decoration: none;
+    margin: 10px;
+    color: lightgray;
+}
+
+a:hover {
+    border-bottom: 2.4px solid green;
+    color: white;
+}
