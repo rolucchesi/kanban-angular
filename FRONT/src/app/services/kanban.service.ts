@@ -40,10 +40,9 @@ export class KanbanService {
 
   getToken(login: string,password:string) {
     // return this.http.post(this.loginUrl, { login: "letscode", password: "lets@123" });
-    const body = { login: "letscode", senha: "lets@123" }
+    const body = { login: login, senha: password }
     const options = { headers: { 'Content-Type': 'application/json' }}
     const token = this.http.post<string>(this.loginUrl, body, options);
-    console.log(token,":::Vem token")
     return token
   }
 

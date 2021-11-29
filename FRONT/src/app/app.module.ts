@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { KanbanComponent } from './kanban/kanban.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ColumnDoingComponent,
     ColumnDoneComponent,
     HeaderComponent,
-    KanbanComponent
+    KanbanComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

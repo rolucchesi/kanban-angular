@@ -22,10 +22,9 @@ export class KanbanComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.kanbanService.getToken('','').subscribe( token => {
-      this.kanbanService.setAuth(token)
-      console.log(token)
-    });
+    // this.kanbanService.getToken('','').subscribe( token => {
+    //   this.kanbanService.setAuth(token)
+    // });
 
     this.kanbanService.getCardsfromServer().subscribe((data) => {
       this.cards = data
