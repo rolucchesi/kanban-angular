@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Card } from 'src/app/models/card.model';
 import { KanbanService } from 'src/app/services/kanban.service';
 
@@ -11,6 +12,14 @@ export class TaskCardComponent implements OnInit {
 
   @Input() card!:Card;
 
+  cardForm: FormGroup = new FormGroup({
+    titulo: new FormControl(),
+    conteudo: new FormControl()
+  });
+
+  
+  showForm!:boolean;
+
   // title:string = "New card";
   // description: string = "New description";
 
@@ -19,6 +28,7 @@ export class TaskCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.showForm = this.card.lista === 'Edit';
   }
 
   deleteCard(){
@@ -48,6 +58,31 @@ export class TaskCardComponent implements OnInit {
       this.kanbanService.cardsChanged.next(p)
     })
   }
+
+  createCard(){
+    // this.showForm = false;
+    const newLista = this.card.lista === 'Edit' ? 'ToDo' : this.card.lista;
+    this.kanbanService.updateCardOnServer(new Card(this.card.id,this.cardForm.value.titulo,this.cardForm.value.conteudo,newLista)).subscribe(p => {
+      this.kanbanService.cardsChanged.next(p)
+    })
+  }
+
+  editCard(){
+    this.showForm = true;
+  }
+
+  cancelEditCard(){
+    this.showForm = false;
+  }
+
+  // saveCard(){
+  //   this.kanbanService.createCardOnServer("teste","Funcionou","ToDo").subscribe( ()=>{
+  //     this.kanbanService.getCardsfromServer().subscribe((data) => {
+  //       this.cards = data
+  //       this.cardsInColumns()
+  //     })
+  //   } )
+  // }
 
   // onNextColumn(){
 

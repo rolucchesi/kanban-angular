@@ -1,20 +1,41 @@
 
-<div class="card task-card">
+<div *ngIf="!showForm" class="card task-card">
     <div class="card-header row">
         <div class="col-3"></div>
         <div class="col-6">{{card.titulo}}</div>
-        <div class="col-3"><button class="btn-success m">Edit</button></div>
+        <div class="col-3"><button class="btn-secondary" (click)="editCard()">Edit</button></div>
     </div>
     <div class="card-body text-start">
         {{card.conteudo}}
     </div>
+
     <div class="card-footer d-flex flex-row justify-content-around">
 
-        <button class="carousel-control-prev-icon icon bg-success" (click)="backwardCard()"></button>
-        <button class="btn-success" (click)="deleteCard()">Delete</button>
+        <button class="carousel-control-prev-icon icon bg-secondary" (click)="backwardCard()"></button>
+        <button class="btn-danger" (click)="deleteCard()">Delete</button>
         
-        <button class="carousel-control-next-icon icon bg-success" (click)="forwardCard()"></button>
+        <button class="carousel-control-next-icon icon bg-secondary" (click)="forwardCard()"></button>
         <!-- <button class="icon text-center">↪ </button> -->
     </div>
     
+</div>
+
+<div *ngIf="showForm" class="card task-card edit">
+    <form [formGroup]="cardForm" (ngSubmit)="createCard()">
+        <div class="card-header">
+            <input type="text" id="titulo" formControlName="titulo" style="color: black">
+        </div>
+        <div class="card-body">
+            <input type="text" id="conteudo" formControlName="conteudo" style="color: black">
+            <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+        </div>
+        <div class="card-footer d-flex flex-row justify-content-around">
+            <button (click) = "cancelEditCard()">
+                Cancelar
+            </button>
+            <button type="submit" class="btn-success">
+                Salvar Card
+            </button>
+        </div>
+    </form>
 </div>

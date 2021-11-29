@@ -39,7 +39,7 @@ export class KanbanComponent implements OnInit {
   }
 
   cardsInColumns(){
-    this.cardsTODO = this.cards.filter( (p) => {return p.lista === 'ToDo'})
+    this.cardsTODO = this.cards.filter( (p) => {return (p.lista === 'ToDo' || p.lista === 'Edit') })
     this.cardsDOING = this.cards.filter( (p) => {return p.lista === 'Doing'})
     this.cardsDONE = this.cards.filter( (p) => {return p.lista === 'Done'})
   }
@@ -52,9 +52,7 @@ export class KanbanComponent implements OnInit {
   }
 
   createCard(){
-    console.log("teste 1")
-
-    this.kanbanService.createCardOnServer("teste","Funcionou","ToDo").subscribe( ()=>{
+    this.kanbanService.createCardOnServer("Adicionar Titulo","Adicionar Corpo","Edit").subscribe( ()=>{
       this.kanbanService.getCardsfromServer().subscribe((data) => {
         this.cards = data
         this.cardsInColumns()
