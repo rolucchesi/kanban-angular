@@ -21,20 +21,27 @@ export class KanbanComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cards = this.kanbanService.getCards()
-    // console.log(this.cards[0].lista === 'todo')
-    this.cardsTODO = this.cards.filter( (p) => {return p.lista === 'todo'})
-    this.cardsDOING = this.cards.filter( (p) => {return p.lista === 'doing'})
-    this.cardsDONE = this.cards.filter( (p) => {return p.lista === 'done'})
-    console.log(this.kanbanService.validateCredentials("",""))
-    // .subscribe( data => {this.cards = data}) //
+    
+    this.kanbanService.getToken('','').subscribe( token => {
+      this.kanbanService.setAuth(token)
+      console.log(token)
+    });
+
+    this.kanbanService.getCardsfromServer().subscribe((data) => {
+      this.cards = data
+      this.cardsInColumns()
+    });
+
+    this.kanbanService.cardsChanged.subscribe(() => {
+      this.getCards()
+    })
 
   }
 
   cardsInColumns(){
-    this.cardsTODO = this.cards.filter( (p) => {return p.lista === 'todo'})
-    this.cardsDOING = this.cards.filter( (p) => {return p.lista === 'doing'})
-    this.cardsDONE = this.cards.filter( (p) => {return p.lista === 'done'})
+    this.cardsTODO = this.cards.filter( (p) => {return p.lista === 'ToDo'})
+    this.cardsDOING = this.cards.filter( (p) => {return p.lista === 'Doing'})
+    this.cardsDONE = this.cards.filter( (p) => {return p.lista === 'Done'})
   }
 
   getCards(){
@@ -47,8 +54,8 @@ export class KanbanComponent implements OnInit {
   createCard(){
     console.log("teste 1")
 
-    this.kanbanService.createCardOnServer("teste","Funcionou","todo").subscribe( ()=>{
-      this.kanbanService.getCardsfromServer().subscribe(data => {
+    this.kanbanService.createCardOnServer("teste","Funcionou","ToDo").subscribe( ()=>{
+      this.kanbanService.getCardsfromServer().subscribe((data) => {
         this.cards = data
         this.cardsInColumns()
       })

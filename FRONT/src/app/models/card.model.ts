@@ -1,8 +1,8 @@
 export class Card {
     constructor(
-        public id:number,
-        public title:string,
-        public content:string,
+        public id:string,
+        public titulo:string,
+        public conteudo:string,
         public lista:string, //todo, doing or done
     ) {}
 }
