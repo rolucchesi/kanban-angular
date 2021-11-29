@@ -72,7 +72,9 @@ export class TaskCardComponent implements OnInit {
   }
 
   cancelEditCard(){
-    this.showForm = false;
+    this.card.lista === 'Edit'
+    ? this.deleteCard()
+    : this.showForm = false;
   }
 
   // saveCard(){

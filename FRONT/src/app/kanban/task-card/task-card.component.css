@@ -1,7 +1,7 @@
 .task-card{
     border: 1px solid;
     /* background-color: lightgray; */
-    height: 10rem;
+    height: 12rem;
     width: 20rem;
     /* display: flex;
     flex-direction: column;
@@ -16,8 +16,8 @@
 
 .icon {
     height: 1.5rem;
-    width: 1.5rem;
-    color:black;
+    /* width: 1.5rem; */
+    /* color:black; */
     padding: 0px;
     /* background-color: ; */
 }

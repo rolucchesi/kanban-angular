@@ -1,5 +1,5 @@
 
-<div *ngIf="!showForm" class="card task-card">
+<div *ngIf="!showForm" class="card task-card text-dark bg-light border-warning">
     <div class="card-header row">
         <div class="col-3"></div>
         <div class="col-6">{{card.titulo}}</div>
@@ -12,7 +12,7 @@
     <div class="card-footer d-flex flex-row justify-content-around">
 
         <button class="carousel-control-prev-icon icon bg-secondary" (click)="backwardCard()"></button>
-        <button class="btn-danger" (click)="deleteCard()">Delete</button>
+        <button class="btn-danger icon"  (click)="deleteCard()">Delete</button>
         
         <button class="carousel-control-next-icon icon bg-secondary" (click)="forwardCard()"></button>
         <!-- <button class="icon text-center">↪ </button> -->
@@ -23,11 +23,12 @@
 <div *ngIf="showForm" class="card task-card edit">
     <form [formGroup]="cardForm" (ngSubmit)="createCard()">
         <div class="card-header">
-            <input type="text" id="titulo" formControlName="titulo" style="color: black">
+            <input type="text" id="titulo" formControlName="titulo" style="color: black" [(ngModel)]="card.titulo">
         </div>
         <div class="card-body">
-            <input type="text" id="conteudo" formControlName="conteudo" style="color: black">
-            <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+            <!-- <input type="text" id="conteudo" formControlName="conteudo" style="color: black"> -->
+            
+            <textarea type="text" id="conteudo" formControlName="conteudo" cols="30" rows="2" [(ngModel)]="card.conteudo">{{card.conteudo}}</textarea>
         </div>
         <div class="card-footer d-flex flex-row justify-content-around">
             <button (click) = "cancelEditCard()">
