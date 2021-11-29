@@ -13,3 +13,7 @@ a:hover {
     border-bottom: 2.4px solid green;
     color: white;
 }
+
+#top-menu {
+    margin-bottom: 1.2rem;
+}
