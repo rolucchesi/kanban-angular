@@ -27,3 +27,12 @@
     height: 2rem;
     align-items: center;
 }
+
+/* .card-header{ */
+    /* padding: 0px; */
+/* } */
+
+.card-header{
+    width: 20rem;
+    margin: 0 0 0 1px;
+}
