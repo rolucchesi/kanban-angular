@@ -16,4 +16,10 @@ a:hover {
 
 #top-menu {
     margin-bottom: 1.2rem;
+    background-color: #efefef !important;
+    /* color: white */
+}
+
+.logo {
+    color: #59ab6e !important;
 }

@@ -50,6 +50,14 @@ export class KanbanService {
     this.authorization = 'Bearer ' + token;
     localStorage.setItem('auth', this.authorization);
     this.isLogged.next(true);
+
+  }
+
+  clearAuth() {
+    this.authorization = '';
+    localStorage.removeItem('auth');
+    this.isLogged.next(false);
+
   }
 
   getCardsfromServer(){
