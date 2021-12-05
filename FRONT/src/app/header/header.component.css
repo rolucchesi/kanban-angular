@@ -1,0 +1,25 @@
+nav li {
+    display: inline-block;
+    margin-right: 35px;
+}
+
+a {
+    text-decoration: none;
+    margin: 10px;
+    color: lightgray;
+}
+
+a:hover {
+    border-bottom: 2.4px solid green;
+    color: white;
+}
+
+#top-menu {
+    margin-bottom: 1.2rem;
+    background-color: #efefef !important;
+    /* color: white */
+}
+
+.logo {
+    color: #59ab6e !important;
+}
