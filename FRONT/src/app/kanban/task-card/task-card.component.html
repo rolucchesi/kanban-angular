@@ -23,12 +23,12 @@
 <div *ngIf="showForm" class="card task-card edit">
     <form [formGroup]="cardForm" (ngSubmit)="createCard()">
         <div class="card-header">
-            <input type="text" id="titulo" formControlName="titulo" style="color: black" [(ngModel)]="card.titulo">
+            <input type="text" id="titulo" formControlName="titulo" style="color: black" [ngModel]="card.titulo">
         </div>
         <div class="card-body">
             <!-- <input type="text" id="conteudo" formControlName="conteudo" style="color: black"> -->
             
-            <textarea type="text" id="conteudo" formControlName="conteudo" cols="30" rows="2" [(ngModel)]="card.conteudo">{{card.conteudo}}</textarea>
+            <textarea type="text" id="conteudo" formControlName="conteudo" cols="30" rows="2" [ngModel]="card.conteudo">{{card.conteudo}}</textarea>
         </div>
         <div class="card-footer d-flex flex-row justify-content-around">
             <button (click) = "cancelEditCard()">

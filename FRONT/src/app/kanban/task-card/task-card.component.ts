@@ -75,6 +75,8 @@ export class TaskCardComponent implements OnInit {
     this.card.lista === 'Edit'
     ? this.deleteCard()
     : this.showForm = false;
+    console.log(this.card.titulo)
+    this.card.titulo = this.card.titulo
   }
 
   // saveCard(){
