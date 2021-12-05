@@ -4,6 +4,7 @@ App criado com Angular como projeto individual no curso de FullStack
 Aplicação criada por Rodrigo Lucchesi como projeto do módulo de Angular no curso da Let's Code.
 
 Rodando a API
+
 Uma API de exemplo foi disponibilizada na pasta BACK
 
 Para rodá-la, faça:
