@@ -1,0 +1,38 @@
+.task-card{
+    border: 1px solid;
+    /* background-color: lightgray; */
+    height: 12rem;
+    width: 20rem;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start; */
+    margin: 0 0 10px 0;
+}
+
+/* .card-body{
+
+} */
+
+.icon {
+    height: 1.5rem;
+    /* width: 1.5rem; */
+    /* color:black; */
+    padding: 0px;
+    /* background-color: ; */
+}
+
+.card-footer{
+    padding: 0rem;
+    height: 2rem;
+    align-items: center;
+}
+
+/* .card-header{ */
+    /* padding: 0px; */
+/* } */
+
+.card-header{
+    width: 20rem;
+    margin: 0 0 0 1px;
+}
